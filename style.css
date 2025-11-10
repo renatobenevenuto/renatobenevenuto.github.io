@@ -46,6 +46,7 @@ body {
     border-bottom: 2px solid #3498db;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .project-list {
@@ -128,8 +129,15 @@ body {
 }
 /* Estilo para o dashboard Power BI */
 .power-bi iframe {
-    width: 100%;       /* Faz o dashboard ocupar toda a largura da seção */
-    height: 600px;      /* Defina uma altura. 600px é um bom começo. */
-    border: none;       /* Remove a borda padrão do iframe */
-    background: #f4f4f4; /* Cor de fundo para caso o dashboard demore a carregar */
+    display: block;            /* <-- ADICIONADO: Faz o iframe se comportar como um bloco */
+    margin-left: auto;         /* <-- ADICIONADO: Define margem esquerda automática */
+    margin-right: auto;        /* <-- ADICIONADO: Define margem direita automática */
+    width: 100%;               /* Mantém a largura de 100% */
+    max-width: 900px;          /* <-- ADICIONADO (Opcional): Limita a largura máxima para não ficar GIGANTE em telas muito largas */
+    height: 600px;             
+    border: none;       
+    background: #f4f4f4;
+}
+.power-bi p {
+    text-align: center;
 }
