@@ -375,3 +375,31 @@ body {
     font-weight: bold;
     text-decoration: underline; /* Sublinhado para destacar que é um link */
 }
+/* --- Estilo da Seção de Publicações (2 Colunas) --- */
+
+.publications-wrapper {
+    display: flex; /* A mágica que cria as 2 colunas */
+    flex-wrap: wrap; /* Permite quebrar em telas pequenas */
+}
+
+.publications-title-column {
+    flex: 1; /* Ocupa 1 parte (aprox. 33%) */
+    min-width: 250px;
+    padding-right: 30px; /* Espaço entre o título e o conteúdo */
+}
+
+.publications-content-column {
+    flex: 2; /* Ocupa 2 partes (aprox. 66%) */
+}
+
+/* Ajuste para o título da seção voltar para a esquerda */
+.publications-title-column .section-title {
+    text-align: left; /* Desfaz a centralização global SÓ AQUI */
+    border: none; /* Remove a borda azul (opcional, como no exemplo) */
+}
+
+.publications-title-column .subtitle {
+    font-size: 1.1em;
+    color: #777;
+    line-height: 1.5;
+}
