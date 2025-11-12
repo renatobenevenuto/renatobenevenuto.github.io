@@ -549,11 +549,11 @@ body {
 }
 
 .courses-list li {
-    display: flex;             /* A mágica: alinha o texto e o ano */
-    justify-content: space-between; /* Título na esquerda, ano na direita */
-    align-items: center;       /* Alinha tudo verticalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid #eee; /* Linha separadora sutil */
-    padding: 1rem 0.5rem;      /* Espaçamento interno */
+    padding: 1.5rem 0.5rem;      /* Aumentamos o espaço (era 1rem) */
 }
 
 /* Remove a borda do último item da lista */
