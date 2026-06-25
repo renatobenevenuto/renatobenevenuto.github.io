@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+    /* --- PALETA SUPER NINTENDO (SNES US) --- */
+    --snes-bg-gray: #E6E6E8;         /* Cinza claro da carcaça do console */
+    --snes-dark-gray: #565759;       /* Cinza escuro do D-Pad e detalhes */
+    --snes-dark-purple: #4A3E7A;     /* Roxo escuro dos botões A e B */
+    --snes-light-purple: #A59CC6;    /* Lilás dos botões X e Y */
+    
+    /* Cores de Texto Padrão */
+    --snes-text-main: #333333;
+    --snes-text-muted: #666666;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Cor de fundo suave */
-    color: #333; /* Cor do texto padrão */
+    background-color: var(--snes-bg-gray); /* Cor do console no fundo */
+    color: var(--snes-text-main); 
 }
 
 .container {
@@ -18,14 +31,15 @@ body {
     background-color: #fff;
     padding: 40px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px; 
+    border-top: 4px solid var(--snes-dark-purple); /* Detalhe retrô no topo das seções */
 }
 
 .section-title {
     font-size: 2em;
-    color: #34495e;
-    border-bottom: 2px solid #3498db;
+    color: var(--snes-dark-purple); /* Títulos em roxo escuro */
+    border-bottom: 2px solid var(--snes-light-purple); /* Linha inferior em lilás */
     padding-bottom: 10px;
     margin-bottom: 20px;
     text-align: center;
@@ -33,24 +47,26 @@ body {
 
 .project-list {
     display: flex;
-    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha em telas menores */
-    gap: 20px; /* Espaço entre os cards */
-    justify-content: center; /* Centraliza os cards */
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center; 
 }
 
 .project-card {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease; /* Efeito de transição suave */
-    flex: 1 1 calc(50% - 20px); /* Ocupa metade da largura em telas maiores */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    flex: 1 1 calc(50% - 20px); 
     max-width: calc(50% - 20px);
     text-align: center;
+    border-bottom: 4px solid var(--snes-light-purple); /* Detalhe de botão no card */
 }
 
 .project-card:hover {
-    transform: translateY(-5px); /* Move o card para cima ao passar o mouse */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(74, 62, 122, 0.15); /* Sombra roxa suave */
 }
 
 .project-image {
@@ -61,29 +77,34 @@ body {
 
 .project-title {
     font-size: 1.5em;
-    color: #2c3e50;
+    color: var(--snes-dark-purple);
     margin: 0 0 10px;
 }
 
 .project-description {
-    color: #666;
+    color: var(--snes-text-muted);
     margin-bottom: 15px;
 }
 
 .project-link {
     display: inline-block;
-    background-color: #3498db;
+    background-color: var(--snes-dark-purple); /* Botão A/B */
     color: #fff;
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: var(--snes-light-purple); /* Botão X/Y no hover */
 }
 
 .footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #333;
+    background-color: var(--snes-dark-gray); /* Cinza do D-Pad para fechar a página */
     color: #f4f4f4;
 }
 
@@ -91,82 +112,83 @@ body {
     color: #f4f4f4;
     font-size: 24px;
     margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--snes-light-purple);
 }
 
 /* Responsividade básica para telas menores */
 @media (max-width: 768px) {
     .project-card {
-        flex: 1 1 100%; /* Ocupa 100% da largura em telas menores */
+        flex: 1 1 100%; 
         max-width: 100%;
     }
 }
+
 /* Estilo da Foto de Perfil */
 .profile-pic {
-    width: 150px;           /* Tamanho da foto */
-    height: 150px;          /* Tamanho da foto */
-    border-radius: 50%;     /* Isso deixa a foto redonda! */
-    display: block;         /* Para centralizar */
-    margin: 20px auto;      /* Centraliza a foto com margens */
-    object-fit: cover;      /* Garante que a foto não fique distorcida */
+    width: 150px;            
+    height: 150px;          
+    border-radius: 50%;     
+    display: block;         
+    margin: 20px auto;      
+    object-fit: cover;      
+    border: 3px solid var(--snes-dark-purple); /* Borda na foto */
 }
+
 /* Estilo para o dashboard Power BI */
 .power-bi iframe {
-    display: block;            /* <-- ADICIONADO: Faz o iframe se comportar como um bloco */
-    margin-left: auto;         /* <-- ADICIONADO: Define margem esquerda automática */
-    margin-right: auto;        /* <-- ADICIONADO: Define margem direita automática */
-    width: 100%;               /* Mantém a largura de 100% */
-    max-width: 900px;          /* <-- ADICIONADO (Opcional): Limita a largura máxima para não ficar GIGANTE em telas muito largas */
+    display: block;            
+    margin-left: auto;         
+    margin-right: auto;        
+    width: 100%;               
+    max-width: 900px;          
     height: 600px;             
-    border: none;       
+    border: 2px solid var(--snes-bg-gray); 
+    border-radius: 8px;
     background: #f4f4f4;
 }
+
 .power-bi p {
     text-align: center;
 }
-/* ESTILOS PARA A NOVA SEÇÃO SUPERIOR */
 
+/* ESTILOS PARA A NOVA SEÇÃO SUPERIOR */
 .hero-section {
-    display: flex; /* Cria as duas colunas */
-    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    display: flex; 
+    flex-wrap: wrap; 
     align-items: flex-start;
     background-color: #fff;
     padding: 40px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
+    border-top: 4px solid var(--snes-dark-purple);
 }
 
 .hero-left {
-    flex: 1; /* Ocupa 1 parte */
-    min-width: 280px; /* Largura mínima antes de quebrar */
+    flex: 1; 
+    min-width: 280px; 
     padding-right: 30px;
     text-align: center;
 }
 
 .hero-right {
-    flex: 2; /* Ocupa 2 partes (mais largo) */
+    flex: 2; 
     min-width: 300px;
-}
-
-/* Ajusta a foto de perfil que já tínhamos */
-.profile-pic {
-    max-width: 200px; /* Aumenta um pouco a foto */
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1; /* Mantém a proporção quadrada */
-    margin-bottom: 20px; 
-    margin-top: 0; /* Remove a margem superior antiga */
 }
 
 .hero-left h1 {
     font-size: 2em;
     margin: 0 0 5px 0;
-    color: #333;
+    color: var(--snes-dark-purple);
 }
 
 .hero-subtitle {
     font-size: 1.1em;
-    color: #555;
+    color: var(--snes-text-muted);
     margin: 0;
 }
 
@@ -177,14 +199,14 @@ body {
 }
 
 .hero-social-icons a {
-    font-size: 1.8em; /* Tamanho dos ícones */
-    color: #888;
+    font-size: 1.8em; 
+    color: var(--snes-dark-gray);
     margin: 0 8px;
     transition: color 0.3s ease;
 }
 
 .hero-social-icons a:hover {
-    color: #3498db; /* Cor ao passar o mouse (o azul que já usamos) */
+    color: var(--snes-dark-purple); 
 }
 
 .hero-block {
@@ -193,8 +215,8 @@ body {
 
 .hero-right h2 {
     font-size: 1.5em;
-    color: #333;
-    border-bottom: 2px solid #eee;
+    color: var(--snes-dark-gray);
+    border-bottom: 2px solid var(--snes-bg-gray);
     padding-bottom: 8px;
     margin-bottom: 15px;
 }
@@ -217,9 +239,9 @@ body {
 
 .formacao-list .fa-graduation-cap {
     font-size: 1.2em;
-    color: #555;
+    color: var(--snes-dark-purple);
     margin-right: 15px;
-    margin-top: 4px; /* Alinha o ícone com o texto */
+    margin-top: 4px; 
 }
 
 .formacao-info {
@@ -230,63 +252,62 @@ body {
 .formacao-titulo {
     font-size: 1.1em;
     font-weight: bold;
-    color: #444;
+    color: var(--snes-text-main);
 }
 
 .formacao-instituicao {
     font-size: 0.9em;
-    color: #777;
+    color: var(--snes-text-muted);
 }
 
-/* Responsividade para o novo header */
 @media (max-width: 768px) {
     .hero-left {
         padding-right: 0;
         margin-bottom: 30px;
     }
     .profile-pic {
-        max-width: 150px; /* Diminui a foto em telas menores */
+        max-width: 150px; 
     }
 }
-/* --- Estilos da Barra de Navegação (Roxa) --- */
 
+/* --- Estilos da Barra de Navegação --- */
 .navbar {
-    background-color: #3f51b5; /* Este é um tom de roxo/índigo profissional! */
+    background-color: var(--snes-dark-purple); /* Roxo do SNES na Navbar! */
     padding: 1rem 1.5rem;
-    position: sticky;  /* Fica "presa" no topo ao rolar */
+    position: sticky;  
     top: 0;
-    z-index: 1000;     /* Garante que ela fique acima de todo o resto */
+    z-index: 1000;     
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-container {
-    max-width: 960px;     /* Mesma largura do .container principal */
-    margin: 0 auto;       /* Centraliza o conteúdo da barra */
+    max-width: 960px;     
+    margin: 0 auto;       
     display: flex;
-    justify-content: space-between; /* Coloca o nome de um lado e os links do outro */
+    justify-content: space-between; 
     align-items: center;
 }
 
 .navbar-brand {
     font-size: 1.5em;
     font-weight: bold;
-    color: #ffffff;      /* Texto branco */
+    color: #ffffff;      
     text-decoration: none;
 }
 
 .navbar-links {
-    list-style: none;     /* Remove as bolinhas da lista */
+    list-style: none;     
     margin: 0;
     padding: 0;
-    display: flex;        /* Coloca os links um ao lado do outro */
+    display: flex;        
 }
 
 .navbar-links li {
-    margin-left: 1.5rem;  /* Espaço entre cada link */
+    margin-left: 1.5rem;  
 }
 
 .navbar-links a {
-    color: #f4f4f4;      /* Texto branco-acinzentado */
+    color: var(--snes-bg-gray);      
     text-decoration: none;
     font-size: 1em;
     font-weight: bold;
@@ -294,13 +315,12 @@ body {
 }
 
 .navbar-links a:hover {
-    color: #3498db;      /* Cor azul clara ao passar o mouse */
+    color: var(--snes-light-purple); /* Efeito Lilás ao passar o mouse */     
 }
 
-/* --- Responsividade da Navbar --- */
 @media (max-width: 768px) {
     .navbar-container {
-        flex-direction: column; /* Empilha o nome e os links */
+        flex-direction: column; 
         align-items: flex-start;
     }
     .navbar-links {
@@ -313,24 +333,20 @@ body {
         margin-bottom: 0.5rem;
     }
 }
-/* --- Estilo da Seção de Destaque (Banner) --- */
 
+/* --- Estilo da Seção de Destaque (Banner) --- */
 .banner-section {
-    /* 1. MUDE 'fundo-banner.jpg' para o nome da sua imagem */
     background-image: url('analise-de-dados.jpg');
-    background-size: cover;          /* Cobre todo o espaço */
-    background-position: center;     /* Centraliza a imagem */
-    background-attachment: fixed;    /* Efeito "parallax" legal ao rolar */
-    background-color: #333;        /* Cor de fundo caso a imagem falhe */
-    color: #ffffff;                /* Texto branco */
-    padding: 60px 40px;            /* Espaçamento interno */
-    
-    /* Um truque para escurecer a imagem e facilitar a leitura */
+    background-size: cover;          
+    background-position: center;     
+    background-attachment: fixed;    
+    background-color: var(--snes-dark-gray); 
+    color: #ffffff;                
+    padding: 60px 40px;            
     position: relative;
     z-index: 1;
 }
 
-/* Camada escura sobre a imagem de fundo */
 .banner-section::before {
     content: '';
     position: absolute;
@@ -338,12 +354,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Camada preta com 60% de opacidade */
+    background-color: rgba(86, 87, 89, 0.8); /* Camada cinza escuro do SNES com opacidade */
     z-index: -1;
 }
 
 .banner-content {
-    max-width: 960px; /* Alinha com o resto do seu conteúdo */
+    max-width: 960px; 
     margin: 0 auto;
 }
 
@@ -371,27 +387,25 @@ body {
 }
 
 .banner-section a {
-    color: #fff; /* Link branco */
+    color: var(--snes-light-purple); /* Link Lilás dentro do banner escuro */
     font-weight: bold;
-    text-decoration: underline; /* Sublinhado para destacar que é um link */
+    text-decoration: underline; 
 }
-/* --- Estilo da Seção de Publicações (2 Colunas) --- */
 
+/* --- Estilo da Seção de Publicações --- */
 .publications-list-container {
-        max-width: 900px; /* Limita a largura da lista para melhor leitura */
-        margin: 0 auto;   /* Centraliza o container da lista */
-    }
-/* --- Estilo da Lista de Publicações (Estilo Yuri) --- */
+    max-width: 900px; 
+    margin: 0 auto;   
+}
 
 .publication-item {
-    display: flex;             /* A mágica: texto na esquerda, imagem na direita */
-    align-items: flex-start;   /* Alinha os itens no topo */
-    margin-bottom: 2.5rem;     /* Espaço grande entre os itens */
-    border-bottom: 1px solid #eee; /* Linha separadora sutil */
+    display: flex;             
+    align-items: flex-start;   
+    margin-bottom: 2.5rem;     
+    border-bottom: 1px solid var(--snes-bg-gray); 
     padding-bottom: 2.5rem;
 }
 
-/* Remove a borda e o espaço do último item */
 .publication-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
@@ -399,25 +413,26 @@ body {
 }
 
 .publication-text {
-    flex: 1;                /* Ocupa todo o espaço disponível */
-    padding-right: 20px;    /* Espaço para a imagem não colar no texto */
+    flex: 1;                
+    padding-right: 20px;    
 }
 
 .publication-title a {
-    font-size: 1.2em;       /* Título grande */
+    font-size: 1.2em;       
     font-weight: bold;
-    color: #333;
+    color: var(--snes-dark-purple);
     text-decoration: none;
 }
+
 .publication-title a:hover {
-    color: #3498db;        /* Azul que já usamos, no hover */
+    color: var(--snes-light-purple);        
 }
 
 .publication-description {
     font-size: 1em;
-    color: #666;
+    color: var(--snes-text-muted);
     margin: 10px 0;
-    font-style: italic;     /* Texto da descrição em itálico */
+    font-style: italic;     
 }
 
 .publication-authors {
@@ -427,11 +442,10 @@ body {
 }
 
 .publication-image {
-    /* Removemos 'width: 220px', 'max-width: 30%' e 'object-fit: cover' */
-
-    width: 40%; /* <-- Define a largura para ~1/3 do espaço */
-    height: auto; /* <-- Mantém a proporção correta da imagem */
-    border: 1px solid #eee; /* Mantém a borda sutil */
+    width: 40%; 
+    height: auto; 
+    border: 2px solid var(--snes-bg-gray); 
+    border-radius: 4px;
 }
 
 .publication-links {
@@ -443,24 +457,22 @@ body {
     display: inline-block;
     font-size: 0.8em;
     font-weight: bold;
-    color: #3498db;             /* Cor azul */
-    border: 1px solid #3498db;  /* Borda azul */
-    padding: 4px 10px;          /* Espaçamento interno pequeno */
-    border-radius: 4px;         /* Cantos arredondados */
+    color: var(--snes-dark-purple);              
+    border: 1px solid var(--snes-dark-purple);  
+    padding: 4px 10px;          
+    border-radius: 4px;         
     text-decoration: none;
-    margin-right: 5px;          /* Espaço entre os botões */
+    margin-right: 5px;          
     transition: all 0.3s ease;
 }
 
 .pub-link:hover {
-    background-color: #3498db;  /* Fundo azul ao passar o mouse */
-    color: #fff;                /* Texto branco */
+    background-color: var(--snes-dark-purple);  
+    color: #fff;                
 }
 
-/* Responsividade: em telas pequenas, empilha a imagem e o texto */
 @media (max-width: 600px) {
     .publication-item {
-        /* Imagem vai para cima, texto para baixo */
         flex-direction: column-reverse; 
     }
     .publication-image {
@@ -472,94 +484,92 @@ body {
         padding-right: 0;
     }
 }
-/* --- Estilo da Seção de Experiência --- */
 
+/* --- Estilo da Seção de Experiência --- */
 .experience-intro {
-    text-align: center; /* Centraliza o parágrafo de introdução */
+    text-align: center; 
     font-size: 1.1em;
-    color: #666;
+    color: var(--snes-text-muted);
     max-width: 800px;
-    margin: 0 auto 30px auto; /* Centraliza o bloco do parágrafo */
+    margin: 0 auto 30px auto; 
 }
 
 .experience-list {
-    list-style: none; /* Remove a bolinha principal da lista */
+    list-style: none; 
     padding-left: 0;
-    max-width: 800px; /* Limita a largura da lista para melhor leitura */
-    margin: 0 auto;   /* Centraliza a lista */
+    max-width: 800px; 
+    margin: 0 auto;   
 }
 
 .experience-list li {
-    margin-bottom: 2rem; /* Espaço entre cada item de emprego */
+    margin-bottom: 2rem; 
 }
 
 .job-title {
     font-size: 1.3em;
     font-weight: bold;
-    color: #333;
+    color: var(--snes-dark-purple);
     margin: 0 0 5px 0;
 }
 
 .job-meta {
     font-size: 1em;
-    font-style: italic; /* Deixa a linha da empresa/data em itálico */
-    color: #555;
+    font-style: italic; 
+    color: var(--snes-dark-gray);
     margin-bottom: 15px;
 }
 
 .job-description {
-    list-style-type: disc; /* Adiciona as bolinhas nos tópicos de descrição */
-    padding-left: 25px; /* Indentação dos tópicos */
+    list-style-type: disc; 
+    padding-left: 25px; 
     line-height: 1.6;
-    color: #444;
+    color: var(--snes-text-main);
 }
 
 .job-description li {
-    margin-bottom: 0.5rem; /* Espaço menor entre as responsabilidades */
+    margin-bottom: 0.5rem; 
 }
-/* --- Estilo da Seção de Cursos e Certificados --- */
 
+/* --- Estilo da Seção de Cursos e Certificados --- */
 .courses-list {
-    list-style: none; /* Remove as bolinhas */
+    list-style: none; 
     padding-left: 0;
-    max-width: 800px; /* Mesma largura das seções de lista */
-    margin: 30px auto 0 auto; /* Centraliza a lista e dá espaço do título */
+    max-width: 800px; 
+    margin: 30px auto 0 auto; 
 }
 
 .courses-list li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee; /* Linha separadora sutil */
-    padding: 1.5rem 0.5rem;      /* Aumentamos o espaço (era 1rem) */
+    border-bottom: 1px solid var(--snes-bg-gray); 
+    padding: 1.5rem 0.5rem;      
 }
 
-/* Remove a borda do último item da lista */
 .courses-list li:last-child {
     border-bottom: none;
 }
 
 .course-details {
-    /* Este container segura o título e a instituição */
     flex-grow: 1;
-    padding-right: 20px; /* Espaço para não colar no ano */
+    padding-right: 20px; 
 }
 
 .course-title {
     font-size: 1.1em;
     font-weight: bold;
-    color: #333;
+    color: var(--snes-dark-purple);
 }
 
 .course-institution {
     font-size: 1em;
     font-style: italic;
-    color: #666;
+    color: var(--snes-text-muted);
 }
 
 .course-year {
     font-size: 1em;
     font-weight: bold;
-    color: #555;
-    white-space: nowrap; /* Garante que o ano não quebre a linha */
+    color: var(--snes-dark-gray);
+    white-space: nowrap; 
 }
