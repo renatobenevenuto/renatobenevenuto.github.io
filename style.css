@@ -10,7 +10,8 @@
 
 :root {
     /* --- PALETA TEMA SUPER NINTENDO DARK --- */
-    --snes-bg-outer: #000000;    /* Preto nas laterais */
+    --snes-bg-outer: #050505;    /* Preto para a listra 1 do fundo */
+    --snes-bg-stripe: #1a1a1a;   /* Cinza escuro para a listra 2 do fundo */
     --snes-bg-inner: #303133;    /* Fundo cinza central */
     --snes-card-bg:  #252627;    /* Cinza um pouco mais escuro para caixas e cards */
     
@@ -30,12 +31,20 @@
 body {
     font-family: 'Lato', sans-serif;
     font-weight: bold;           /* Letra principal em BOLD */
-    font-style: oblique;         /* Letra principal em OBLIQUE (itálico) */
+    font-style: normal;          /* RETIRADO O ITALICO: Letra principal reta */
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--snes-bg-outer); /* Fundo preto */
-    color: var(--snes-text-main);           /* Texto branco */
+    
+    /* FUNDO LISTRADO PRETO/CINZA */
+    background-image: repeating-linear-gradient(
+        0deg,
+        var(--snes-bg-outer),
+        var(--snes-bg-outer) 40px,
+        var(--snes-bg-stripe) 40px,
+        var(--snes-bg-stripe) 80px
+    );
+    color: var(--snes-text-main);           
 }
 
 /* --- ESTILOS GLOBAIS DE TÍTULOS --- */
@@ -63,7 +72,7 @@ h1, h2, h3, h4,
     background-color: var(--snes-bg-inner); 
     padding: 40px;
     margin-bottom: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); /* Sombra mais forte para destacar do fundo listrado */
     border-radius: 8px; 
     border-top: 4px solid var(--snes-dark-purple);
 }
@@ -183,7 +192,7 @@ h1, h2, h3, h4,
     background-color: var(--snes-bg-inner);
     padding: 40px;
     margin-bottom: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     border-top: 4px solid var(--snes-dark-purple);
 }
@@ -222,23 +231,21 @@ h1, h2, h3, h4,
 .social-links a {
     font-size: 1.8em; 
     margin: 0 8px;
-    display: inline-block; /* Necessário para o transform funcionar */
+    display: inline-block; 
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Efeito de zoom e brilho ao passar o rato (hover) */
 .hero-social-icons a:hover,
 .social-links a:hover {
     transform: scale(1.15); 
     filter: brightness(1.2);
 }
 
-/* Cores originais de cada marca */
-.fa-envelope { color: #EA4335; } /* Vermelho Gmail */
-.fa-whatsapp { color: #25D366; } /* Verde WhatsApp */
-.fa-linkedin { color: #0A66C2; } /* Azul LinkedIn */
-.fa-file-pdf { color: #F40F02; } /* Vermelho Adobe PDF */
-.fa-github   { color: #ffffff; } /* Branco para o GitHub (ideal no fundo escuro) */
+.fa-envelope { color: #EA4335; } 
+.fa-whatsapp { color: #25D366; } 
+.fa-linkedin { color: #0A66C2; } 
+.fa-file-pdf { color: #F40F02; } 
+.fa-github   { color: #ffffff; } 
 
 .hero-block {
     margin-bottom: 30px;
@@ -307,7 +314,7 @@ h1, h2, h3, h4,
     position: sticky;  
     top: 0;
     z-index: 1000;     
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); 
 }
 
 .navbar-container {
